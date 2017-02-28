@@ -1,5 +1,7 @@
 <?php
 
+
+use yii\widgets\LinkPager;
 /* @var $this yii\web\View */
 
 $this->title = 'Home';
@@ -43,6 +45,9 @@ else
                         </div>
                         <!-- product-item end -->
                     <?php endforeach; ?>
+                    <div style="text-align: right;">
+                        <?= LinkPager::widget(['pagination' => $pages,]);?>
+                    </div>
                 </div>
                 <div class="col-md-2">
                     <!-- widget-categories -->

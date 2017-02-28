@@ -3,10 +3,14 @@
 namespace app\controllers;
 
 use Yii;
+use yii\web\Response;
 use app\models\User;
 use app\models\UserSearch;
+use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use yii\base\Exception;
+use app\components\StringUtils;
 use yii\filters\VerbFilter;
 
 /**
@@ -25,6 +29,18 @@ class UserController extends Controller
                 'actions' => [
                     'delete' => ['POST'],
                 ],
+            ],
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+                'denyCallback' => function () {
+                    return Yii::$app->response->redirect(['/login']);
+                },
             ],
         ];
     }
@@ -57,6 +73,16 @@ class UserController extends Controller
     }
 
     /**
+     * Displays a single User model.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionProfile()
+    {
+        return $this->render('profile', [ 'model' => $this->findModel(Yii::$app->user->identity->id), ]);
+    }
+
+    /**
      * Creates a new User model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
@@ -65,13 +91,7 @@ class UserController extends Controller
     {
         $model = new User();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('create', [
-                'model' => $model,
-            ]);
-        }
+        return $this->render('create', [ 'model' => $model, ]);
     }
 
     /**
@@ -94,6 +114,38 @@ class UserController extends Controller
     }
 
     /**
+     * Save a new User model.
+     * If creation is successful, the browser will be redirected to the 'view' page.
+     * @return mixed
+     */
+    public function actionSave($id = null)
+    {
+        Yii::$app->response->format = Response::FORMAT_JSON;
+
+        $model = new User();
+
+        if( Yii::$app->request->isAjax )
+        {
+            if( $id )
+            {
+                $model = $this->findModel($id);
+            }
+
+            if(!$model->load(Yii::$app->request->post()))
+            {
+                throw new Exception( 'Sorry, can\'t save data, fill all fields and try again!' );
+            }
+
+            $model->password = StringUtils::hash($model->password);
+            $model->save();
+
+            return $model;
+        }
+
+        throw new Exception( 'Page not found!' );
+    }
+
+    /**
      * Deletes an existing User model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
@@ -104,6 +156,19 @@ class UserController extends Controller
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
+    }
+
+    /**
+     * Deletes an existing User model.
+     * If deletion is successful, the browser will be redirected to the 'index' page.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionDeleteAjax($id)
+    {
+        Yii::$app->response->format = Response::FORMAT_JSON;
+
+        return $this->findModel($id)->delete();
     }
 
     /**

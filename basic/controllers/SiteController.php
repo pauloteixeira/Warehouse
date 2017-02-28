@@ -59,7 +59,7 @@ class SiteController extends Controller
     public function actionIndex( $id = null )
     {
         $categories = Category::find()->all();
-        $products   = Product::find()->all();
+        $products   = Product::getHomeProducts();
         $selectedCategory = null;
         $categoryName = null;
 
@@ -71,7 +71,11 @@ class SiteController extends Controller
 
         }
 
-        return $this->render('index', ['categories' => $categories, 'categoryName' => $categoryName, 'products' => $products, ]);
+        return $this->render('index', 
+                ['categories'   => $categories, 
+                'categoryName'  => $categoryName, 
+                'products'      => $products['result'],
+                'pages'         => $products['pages'] ]);
     }
 
     /**
