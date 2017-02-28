@@ -1,0 +1,500 @@
+/*-----------------------------------------------------------------------------------
+
+  Author: Paulo A. Teixeira
+  Version: 1.0
+
+-----------------------------------------------------------------------------------
+
+CSS INDEX
+  ===================
+  
+  1. Home
+    1.1 Header layout 
+    1.2 Logo
+    2.3 Breadcrumbs
+  2. Login Page
+    2.1 Login Content Definition
+    2.2 Login Form
+  3. Menus
+    3.1 Header Menu
+    3.2 Categories Menu
+  4. Body
+    4.1 Body base content
+  5. Sidebar
+    5.1 Sidebar Widget
+    5.2 Widget search
+  6. Products
+    6.1 Featured product section
+  7. 3rd part components
+    7.1 pNotify
+    7.2 Panel
+  8. Forms
+    8.1 Form Button
+    
+-----------------------------------------------------------------------------------*/
+
+@charset "UTF-8";
+
+/* -------------------------------------
+    1.1 Header
+------------------------------------- */
+.header {
+  padding: 5px 0;
+  background-color: #EDEDED;
+}
+
+.header .logo {
+  position: relative;
+  top: 10px;
+}
+
+@media screen and (max-width: 991px) {
+  .header.navbar-fixed-top + .bottom {
+    margin-top: 112px;
+  }
+}
+
+/* -------------------------------------
+    1.2 Logo
+------------------------------------- */
+.logo {
+  margin: 10px 10px 10px 10px;
+  padding-bottom: 20px;
+}
+
+/* -------------------------------------
+    1.2 Breadcrumb
+------------------------------------- */
+.breadcrumb {
+  background-color: inherit;
+  padding-left: 0;
+  top: 44px;
+}
+.breadcrumb a {
+  color: #555;
+}
+.breadcrumb i {
+  font-size: 1.2em;
+  margin-right: 5px;
+}
+.breadcrumb .active {
+  font-weight: 300;
+}
+
+/* -------------------------------------
+    2.1 Login Content Definition
+------------------------------------- */
+.wrap #login-content {
+  padding: 15px 30px;
+  height: 100% !important;
+  vertical-align: middle;
+}
+
+/* -------------------------------------
+    2.2 Login Form
+------------------------------------- */
+.login {
+  border-radius: 10px;
+  width: 550px;
+  padding: 50px;
+  border: 1px solid #e3e3e3;
+  margin-top: 10%;
+  position:relative;
+  box-shadow: 5px 5px 5px #CCC;
+}
+
+.login-links {
+  text-align: left;
+  color: #666;
+}
+
+.login-links a {
+  color: #666;
+}
+
+.login-links a:hover {
+  color: #555;
+  text-decoration: none;
+}
+
+/* -------------------------------------
+    3.1 Header Menu
+------------------------------------- */
+.menu {
+  margin: 0 auto;
+}
+
+#menu ul {
+  margin: 0 auto;
+  list-style:none;
+  text-align: right;
+}
+
+#menu ul li { display: inline; }
+
+#menu ul li a {
+  padding: 2px 10px;
+  display: inline-block;
+ 
+  /* visual do link */
+  background-color:#EDEDED;
+  color: #333;
+  text-decoration: none;
+  border-bottom:3px solid #EDEDED;
+}
+
+#menu ul li a:hover {
+  background-color:#eaeaea;
+  color: #6D6D6D;
+  border-bottom:3px solid #EA0000;
+}
+
+/* -------------------------------------
+    3.2 Categories Menu
+------------------------------------- */
+.product-cat > ul > li > ul {
+  padding-left: 20px;
+}
+.product-cat .treeview > li > a,
+.product-cat .treeview > li > ul > li > a {
+  color: #999999;
+  display: inline-block;
+  text-transform: capitalize;
+}
+.product-cat .treeview > li > a {
+  font-size: 14px;
+  line-height: 30px;
+}
+.product-cat .treeview > li > ul > li > a {
+  font-size: 13px;
+  line-height: 25px;
+}
+.product-cat .treeview li {
+  position: relative;
+}
+.product-cat .hitarea {
+  cursor: pointer;
+  height: 30px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.product-cat .treeview .collapsable > a {
+  color: #ff7f00;
+}
+
+.ul-menu
+{
+  list-style:none;
+  color: #999;
+}
+.ul-menu a
+{
+  color: #999;
+}
+.ul-menu a:hover
+{
+  color: #999;
+}
+
+/* -------------------------------------
+    4 Body
+------------------------------------- */
+body {
+  font-family: 'Raleway', sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+/* -------------------------------------
+    4.1 Base Content
+------------------------------------- */
+.content
+{
+  margin: 100px auto;
+  width: 100%;
+  
+}
+
+.container {
+  margin: 100px auto;
+}
+
+
+/* -------------------------------------
+    5.1 Sidebar Widget
+------------------------------------- */
+aside {
+  margin: 0 auto;
+}
+.widget {
+  padding: 20px 30px;
+}
+.widget-title {
+  color: #666666;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+/* -------------------------------------
+    5.2 Widget search
+------------------------------------- */
+.widget-search {
+  position: relative;
+}
+
+.widget-search input {
+  height: 50px;
+  margin-bottom: 0;
+  padding-right: 50px;
+}
+.widget-search button {
+  background: transparent none repeat scroll 0 0;
+  color: #999;
+  font-size: 20px;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  transition: all 0.3s ease 0s;
+  width: 50px;
+  top: 0px;
+  right: -41px;
+  border: none;
+}
+.widget-search button:hover {
+  color: #ff7f00;
+}
+.widget-search {
+  margin-top: 30px;
+}
+
+
+
+/* -------------------------------------
+    6.1 Featured product section
+------------------------------------- */
+.product-item {
+  margin-bottom: 30px;
+  transition: all 0.3s ease 0s;
+}
+.product-img img {
+  width: 100%;
+}
+.product-info {
+  background: #f6f6f6 none repeat scroll 0 0;
+  padding: 20px 0;
+  text-align: center;
+}
+.product-title {
+  color: #434343;
+  font-family: "Raleway",sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.in-stock p{
+  line-height: 1;
+  margin-bottom: 10px;
+  color: #006699;
+}
+
+.pro-price {
+  color: #666666;
+  font-family: "Roboto",sans-serif;
+  font-weight: 400;
+  line-height: 20px;
+  margin-bottom: 20px;
+  z-index: 9;
+}
+.action-button {}
+.action-button > li {
+  display: inline-block;
+  margin-right: 10px;
+}
+.action-button > li:last-child {
+  margin-right: 0;
+}
+.action-button > li > a {
+  background: transparent;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  color: #999999;
+  display: block;
+  font-size: 14px;
+  height: 30px;
+  text-align: center;
+  width: 30px;
+}
+.action-button > li > a i {
+  line-height: 28px;
+}
+.action-button > li:hover > a {
+  background: #FF7F00;
+  border-color: #FF7F00;
+  color: #fff;
+}
+.product-item:hover {
+  box-shadow: 0px 8px 13px rgba(0, 0, 0, 0.15);
+}
+
+
+
+
+/* -------------------------------------
+    7.1 Pnotify by Hunter Perrin :: 2.0.1
+------------------------------------- */
+
+.ui-pnotify {
+  top: 25px;
+  right: 25px;
+  position: absolute;
+  height: auto;
+  /* Ensures notices are above everything */
+  z-index: 9999;
+}
+
+/* Hides position: fixed from IE6 */
+
+html > body > .ui-pnotify {
+  position: fixed;
+}
+.ui-pnotify .ui-pnotify-shadow {
+  -webkit-box-shadow: 0px 2px 10px rgba(50, 50, 50, 0.5);
+  -moz-box-shadow: 0px 2px 10px rgba(50, 50, 50, 0.5);
+  box-shadow: 0px 2px 10px rgba(50, 50, 50, 0.5);
+}
+.ui-pnotify-container {
+  background-position: 0 0;
+  padding: .8em;
+  height: 100%;
+  margin: 0;
+}
+.ui-pnotify-sharp {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+.ui-pnotify-title {
+  display: block;
+  margin-bottom: .4em;
+  margin-top: 0;
+}
+.ui-pnotify-text {
+  display: block;
+}
+.ui-pnotify-icon, .ui-pnotify-icon span {
+  display: block;
+  float: left;
+  margin-right: .2em;
+}
+
+/* Alternate stack initial positioning. */
+
+.ui-pnotify.stack-topleft, .ui-pnotify.stack-bottomleft {
+  left: 25px;
+  right: auto;
+}
+.ui-pnotify.stack-bottomright, .ui-pnotify.stack-bottomleft {
+  bottom: 25px;
+  top: auto;
+}
+.ui-pnotify-closer, .ui-pnotify-sticker {
+  float: right;
+  margin-left: .2em;
+}
+
+
+
+/* -------------------------------------
+    7.2 Panel
+------------------------------------- */
+/* x-pener x-title x-content */
+.panel_toolbox {
+  float: right;
+  min-width: 70px;
+}
+.panel_toolbox>li {
+  float: left;
+}
+.panel_toolbox>li>a {
+  padding: 5px;
+  color: #336699;
+  font-size: 14px;
+}
+.panel_toolbox>li>a:hover {
+  color: #666;
+}
+.x_panel {
+  position: relative;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px 17px;
+  display: inline-block;
+  background-color: #FFF;
+  border: 1px solid #E6E9ED;
+  -webkit-column-break-inside: avoid;
+  -moz-column-break-inside: avoid;
+  column-break-inside: avoid;
+  opacity: 1;
+  transition: all .2s ease; 
+}
+
+.x_title {
+  border-bottom: 2px solid #E6E9ED;
+  padding: 1px 5px 6px;
+  margin-bottom: 10px;
+}
+
+.x_title .filter {
+  width: 40%;
+  float: right; }
+
+.x_title h1 {
+  margin: 5px 0 6px;
+  color: #999 !important;
+  float: left;
+  display: block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap; 
+  font-size: 23px;
+}
+
+.x_title h1 small {
+  margin-left: 10px; }
+
+.x_title span {
+  color: #BDBDBD; }
+
+.x_content
+{
+  padding: 0 5px 6px;
+  position: relative;
+  width: 100%;
+  float: left;
+  clear: both;
+  margin-top: 5px; 
+}
+.x_content h4 {
+  font-size: 16px;
+  font-weight: 500; 
+}
+
+.x_content label {
+  font-size: 14px;
+  font-weight: 500; 
+}
+
+/* -------------------------------------
+    8.1 Form Buttons
+------------------------------------- */
+.form-button
+{
+  text-align: right;
+}
