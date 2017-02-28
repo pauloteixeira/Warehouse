@@ -31,6 +31,24 @@ Clone the repository
 git clone git@github.com:pauloteixeira/Warehouse.git
 ```
 
+Configure your database connection, in the root of the project open the file and change data using the command below
+```bash
+$ vim basic/config/db.php
+```
+
+The file have the struct below:
+```bash
+<?php
+
+return [
+    'class' => 'yii\db\Connection',
+    'dsn' => 'mysql:host=locahost;dbname=warehouse',
+    'username' => 'root',
+    'password' => 'dbpassword',
+    'charset' => 'utf8',
+];
+```
+
 create the vhost
 ```bash
 <VirtualHost *:80>
