@@ -1,5 +1,6 @@
 # Warehouse
-Há armazém com muitos funcionários que podem adicionar / editar / excluir produtos para estoque. Também há muitas categorias de produtos. Tal caso é possível que um produto pertence a muitas categorias. Deve haver possibilidade de adicionar e remover novos funcionários para o sistema. O produto deve conter a imagem, a descrição, o preço e o que quer que.
+There is warehouse with many employees who can add/edit/delete products to stock. Also there are many categories of products. Such case is possible that one products belongs to many categories. There should be possibility to add and remove new employees to the system. Product should contain picture, description, price and whatever.
+
 
 TECHNOLOGIES USED
 ============================
