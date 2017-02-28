@@ -60,6 +60,9 @@ create the vhost
 </VirtualHost>
 ```
 
+**P.S.**
+Can be necessary to give written permission in the images folder and other that are inside
+
 Create the database using the script below
 ```sql
 CREATE DATABASE warehouse;
