@@ -65,7 +65,7 @@ class LoginForm extends Model
         if ($this->validate()) {
             $userLogin = $this->getLogin();
 
-            // if user was logicaly deleted
+            // if user is not active
             if( $userLogin == false ){
               return false;
             }
@@ -107,9 +107,9 @@ class LoginForm extends Model
             {
                 return false;
             }
-            // verify if the user was deleted
-            $userModel = User::find($this->_user->id)->one();
-            return ( !$userModel->is_active ) ? false : $this->_user;
+
+            // verify if the user is active
+            return ( !$this->_user->is_active ) ? false : $this->_user;
         }
 
         return $this->_user;

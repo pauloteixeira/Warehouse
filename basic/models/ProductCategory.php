@@ -15,5 +15,19 @@ use Yii;
  */
 class ProductCategory extends base\ProductsHasCategories
 {
-    
+	/**
+     * Delete all products_has_categories that belongs the selected product_id
+     * @param integer $product_id
+     * @return boolean
+     */
+    public static function deleteByProduct( $id )
+    {
+    	\Yii::$app
+            ->db
+            ->createCommand()
+            ->delete(ProductCategory::tableName(), ['product_id' => $id])
+            ->execute();
+
+        return true;
+    }
 }

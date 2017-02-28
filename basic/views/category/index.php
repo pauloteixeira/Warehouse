@@ -33,16 +33,16 @@ CategoryAsset::register($this);
                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
-                <?php Pjax::begin(); ?>    <?= GridView::widget([
-                        'dataProvider' => $dataProvider,
-                        'columns' => [
-                            'id',
-                            'name',
+                  <?php Pjax::begin(); ?>    <?= GridView::widget([
+                          'dataProvider' => $dataProvider,
+                          'columns' => [
+                              'id',
+                              'name',
 
-                            ['class' => 'yii\grid\ActionColumn'],
-                        ],
-                    ]); ?>
-                <?php Pjax::end(); ?>
+                              ['class' => 'yii\grid\ActionColumn'],
+                          ],
+                      ]); ?>
+                  <?php Pjax::end(); ?>
                 </div>
             </div>
         </div>

@@ -63,6 +63,11 @@ function validateForm()
 {
   var msg   = "";
   var $name = $('#product-name').val();
+  var $description = $('#product-description').val();
+  var $price = $('#product-price').val();
+  var $quantity = $('#product-quantity').val();
+  var $file = $('#uploadmodel-file').val();
+  var $categories = $('#productcategory-category_id').val();
   
   if( alert_is_opened )
   {
@@ -72,6 +77,31 @@ function validateForm()
   if( $name.length == 0 )
   {
     msg += '<li>The product name field is required!</li>';
+  }
+
+  if( $description.length == 0 )
+  {
+    msg += '<li>The product description field is required!</li>';
+  }
+
+  if( $price.length == 0 )
+  {
+    msg += '<li>The product price field is required!</li>';
+  }
+
+  if( $quantity.length == 0 )
+  {
+    msg += '<li>The product quantity field is required!</li>';
+  }
+
+  if( $file.length == 0 )
+  {
+    msg += '<li>The product image field is required!</li>';
+  }
+
+  if( $categories.length == 0 )
+  {
+    msg += '<li>The product categories field is required!</li>';
   }
 
   

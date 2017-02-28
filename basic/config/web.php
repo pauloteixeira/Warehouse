@@ -47,6 +47,9 @@ $config = [
                 '/user/<id:\d+>' => 'user/view',
                 '/user/update/<id:\d+>' => 'user/update',
                 '/user/delete/<id:\d+>' => 'user/delete',
+                '/user/delete-ajax/<id:\d+>' => 'user/delete-ajax',
+                '/user/save/<id:\d+>' => 'user/save',
+                '/profile' => 'user/profile',
                 '/category/<id:\d+>' => 'category/view',
                 '/category/update/<id:\d+>' => 'category/update',
                 '/category/delete/<id:\d+>' => 'category/delete',
@@ -56,6 +59,7 @@ $config = [
                 '/product/update/<id:\d+>' => 'product/update',
                 '/product/save/<id:\d+>' => 'product/save',
                 '/product/delete-ajax/<id:\d+>' => 'product/delete-ajax',
+                '/products/<id:\d+>' => 'product/detail',
             ],
         ],
         'StringUtils' => [

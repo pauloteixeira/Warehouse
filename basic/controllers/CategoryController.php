@@ -81,15 +81,7 @@ class CategoryController extends Controller
         $model = new Category();
 
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            if (Yii::$app->request->isPjax || Yii::$app->request->isAjax) {
-                return json_encode($model);
-            } else {
-                return $this->redirect(['view', 'id' => (string) $model->id]);
-            }           
-        } else {
-            return $this->render('create', ['model' => $model,]);
-        }
+        return $this->render('create', ['model' => $model,]);
     }
 
     /**

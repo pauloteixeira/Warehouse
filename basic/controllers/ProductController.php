@@ -78,6 +78,18 @@ class ProductController extends Controller
     }
 
     /**
+     * Displays a single Product model.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionDetail($id)
+    {
+        $categories = Category::getCategoriesByProduct($id);
+
+        return $this->render('detail', [ 'model' => $this->findModel($id), 'categories' => $categories, ]);
+    }
+
+    /**
      * Creates a new Product model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
@@ -125,7 +137,6 @@ class ProductController extends Controller
         $uploadModel = new UploadModel();
         $path = 'images/products/';
 
-        $model->load(Yii::$app->request->post());
         $categories = Yii::$app->request->post('ProductCategory');
         $categories = explode(',',$categories['category_id']);
 
@@ -165,11 +176,7 @@ class ProductController extends Controller
 
 
                 if( $id ){
-                    \Yii::$app
-                            ->db
-                            ->createCommand()
-                            ->delete(ProductCategory::tableName(), ['product_id' => $id])
-                            ->execute();
+                    ProductCategory::deleteByProduct( $id );
                 }
 
                 foreach ($categories as $category) {
