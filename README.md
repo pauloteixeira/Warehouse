@@ -23,53 +23,45 @@ features to your application.
 INSTALLATION & CONFIGURATION
 ============================
 
-To install and running the ERP is required to following the instructions bellow:
+To install and running the APP is required to following the instructions bellow:
 
 Clone the repository
 ```bash
-git clone https://pauloteixeira@bitbucket.org/erpescola/escola.git
+git clone git@github.com:pauloteixeira/Warehouse.git
 ```
 
 create the vhost
 ```bash
 <VirtualHost *:80>
     ServerAdmin warehouse.dev
-    DocumentRoot "/Users/pauloteixeira/wwwroot/app/warehouse/basic/web"
+    DocumentRoot "/Users/username/wwwroot/app/warehouse/basic/web"
     ServerName warehouse.dev
-    ErrorLog "/Users/pauloteixeira/wwwroot/log/warehouse-error_log"
-    CustomLog "/Users/pauloteixeira/wwwroot/log/warehouse-access_log" common
+    ErrorLog "/Users/username/wwwroot/log/warehouse-error_log"
+    CustomLog "/Users/username/wwwroot/log/warehouse-access_log" common
 </VirtualHost>
 ```
 
-Install Composer
-```bash
-cd ~/
-curl -sS https://getcomposer.org/installer | php
+Create the database using the script below
+```sql
+CREATE DATABASE warehouse;
 ```
 
-
-Move composer to global place
+Run the migrations in the terminal
 ```bash
-sudo mv composer.phar /usr/local/bin/composer
+php yii migrate new
 ```
+This migration will be create all of the tables and insert a user to init of use.
 
-Inside the project run composer installation
-```bash
-cd warehouse/basic
-composer install
-```
+if is necessaire, I'm making a database dump available to alread run the application with data in the folder script in the root of the project.
+
+if you're using the dump data, the password of the admin@admin.com user is: senha123
+
 
 ADMIN USER ACCESS
 ============================
 
 **Username:** admin@admin.com
 
-**Password:** senha123
+**Password:** password123
 
-EMPLOYEE USER ACCESS
-============================
-
-**Username:** employee1@admin.com
-
-**Password:** senha123
 
