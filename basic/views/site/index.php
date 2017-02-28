@@ -21,36 +21,30 @@ else
             <div clas="row">
                 <div class="col-md-10">
                 
-                    <!-- product-item start -->
-                    <div class="col-md-4 col-sm-6 col-xs-12">
-                        <div class="product-item">
-                            <div class="product-img">
-                                <a href="single-product.html">
-                                    <img src="/images/product/1.jpg" alt=""/>
-                                </a>
-                            </div>
-                            <div class="product-info">
-                                <h6 class="product-title">
-                                    <a href="/product/1">Product Name</a>
-                                </h6>
-                                <div class="in-stock">
-                                    <p>45 In Stock</p>
+                    <?php foreach($products as $product ): ?>
+                        <!-- product-item start -->
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                            <div class="product-item">
+                                <div class="product-img">
+                                    <a href="/products/<?= $product->id; ?>">
+                                        <img width="270px" height="300px" src="/images/products/<?= $product->image; ?>" alt=""/>
+                                    </a>
                                 </div>
-                                <h3 class="pro-price">€ 869.00</h3>
+                                <div class="product-info">
+                                    <h6 class="product-title">
+                                        <a href="/products/<?= $product->id; ?>"><?= $product->name; ?></a>
+                                    </h6>
+                                    <div class="in-stock">
+                                        <p><?= ($product->quantity) ? $product->quantity . '  In Stock' : 'Out of Stock'; ?></p>
+                                    </div>
+                                    <h3 class="pro-price">€ <?= $product->price; ?></h3>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- product-item end -->
-
+                        <!-- product-item end -->
+                    <?php endforeach; ?>
                 </div>
                 <div class="col-md-2">
-                    <!-- widget-search -->
-                    <aside class="widget-search">
-                        <form action="#">
-                            <input type="text" placeholder="Search here...">
-                            <button type="submit"><i class="fa fa-search"></i></button>
-                        </form>
-                    </aside>
                     <!-- widget-categories -->
                     <aside class="widget widget-categories box-shadow mb-30">
                         <h6 class="widget-title border-left mb-20">Categories</h6>

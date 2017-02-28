@@ -10,6 +10,7 @@ use app\models\LoginForm;
 use app\models\ContactForm;
 use app\components\StringUtils;
 use app\models\Category;
+use app\models\Product;
 
 class SiteController extends Controller
 {
@@ -58,6 +59,7 @@ class SiteController extends Controller
     public function actionIndex( $id = null )
     {
         $categories = Category::find()->all();
+        $products   = Product::find()->all();
         $selectedCategory = null;
         $categoryName = null;
 
@@ -65,10 +67,11 @@ class SiteController extends Controller
         {
             $selectedCategory = Category::findOne($id);
             $categoryName = $selectedCategory->name;
+            $products = Product::getProductsByCategory($id);
 
         }
 
-        return $this->render('index', ['categories' => $categories, 'categoryName' => $categoryName]);
+        return $this->render('index', ['categories' => $categories, 'categoryName' => $categoryName, 'products' => $products, ]);
     }
 
     /**

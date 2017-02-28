@@ -1,12 +1,30 @@
+categories_ids = undefined;
+$(document).ready(function(){
+    $("#categories").select2({
+      maximumSelectionLength: 10,
+      placeholder: "Select up to ten categories",
+      allowClear: true,
+    });
+
+    $('#product-price').mask("#,##0.00", {reverse: true});
+    if( categories_ids != undefined && categories_ids.length ){
+      $('#productcategory-category_id').val(categories_ids);
+    }
+});
+
+$('#categories').on('change', function(e){
+  $('#productcategory-category_id').val($(this).val());
+});
+
 function removeView( id ) {
   $.ajax({
-        url: '/category/delete-ajax/' + id,
+        url: '/product/delete-ajax/' + id,
         type: 'POST',
         contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
         success: function( data ) {
 
           if( data ){
-            location.href="/category";
+            location.href="/product";
           }
 
         },
@@ -18,7 +36,7 @@ function removeView( id ) {
 
 function remove( id ) {
   $.ajax({
-        url: '/category/delete/' + id,
+        url: '/product/delete/' + id,
         type: 'POST',
         contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
         success: function( data ) {
@@ -30,7 +48,7 @@ function remove( id ) {
                 target.remove();
             });
 
-        		notifySuccess('The Categoria was deleted successful!', '');
+        		notifySuccess('The Product was deleted successful!', '');
         	}
 
         },
@@ -44,7 +62,7 @@ function remove( id ) {
 function validateForm()
 {
   var msg   = "";
-  var $name = $('#category-name').val();
+  var $name = $('#product-name').val();
   
   if( alert_is_opened )
   {
@@ -53,7 +71,7 @@ function validateForm()
 
   if( $name.length == 0 )
   {
-    msg += '<li>The category name field is required!</li>';
+    msg += '<li>The product name field is required!</li>';
   }
 
   
@@ -82,22 +100,25 @@ function submitForm() {
     return;
   }
 
-  var form  = $('#categoryForm');
-  var route = '/category/save/';
-  var id = $('#category-id').val();
+  //var form  = $('#productForm');
+  var route = '/product/save/';
+  var id = $('#product-id').val();
+  var formData = new FormData($('form')[0]);
 
   $.ajax({
         url: route + id,
         type: 'POST',
-        contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
         dataType: 'json',
-        data: form.serialize() ,
+        data: formData ,
+        contentType: false,
+        processData: false,
         success: function( data ) {
             if(data) {
-              notifySuccess( 'Category was saved successful!', '' );
+              notifySuccess( 'Product was saved successful!', '' );
 
               if(!id){
-                $("#categoryForm")[0].reset();
+                $('form')[0].reset();
+                $('#categories').val(null).trigger("change");
               }
             }
         },

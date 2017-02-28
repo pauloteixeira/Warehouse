@@ -1,19 +1,18 @@
 <?php
 
 use yii\helpers\Html;
-use app\assets\CategoryAsset;
+use app\assets\ProductAsset;
 use app\components\StringUtils;
 
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Category */
 
-$this->title = Yii::t('app', 'Update Category');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Categories'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
+$this->title = Yii::t('app', 'Create Product');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Products'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 
-CategoryAsset::register($this);
+ProductAsset::register($this);
 ?>
 <div id="top" class="content">
 	<div class="row">
@@ -37,7 +36,7 @@ CategoryAsset::register($this);
 		          <h1><?= Html::encode($this->title) ?></h1>
 		          <ul class="nav navbar-right panel_toolbox">
 		            <li class="dropdown">
-		              <a href="/category" class="dropdown-toggle" role="button" title="Back"><i class="fa fa-arrow-left"></i> Back</a>
+		              <a href="<?= StringUtils::currentUrl(); ?>" class="dropdown-toggle" role="button" title="Back"><i class="fa fa-arrow-left"></i> Back</a>
 		            </li>
 		            <li class="dropdown">
 		              <a href="/" class="dropdown-toggle" role="button" title="<?= Yii::t('app','Go home'); ?>"><i class="fa fa-home"></i> Home</a>
@@ -46,10 +45,12 @@ CategoryAsset::register($this);
 		          <div class="clearfix"></div>
 		        </div>
 		        <div class="x_content">
-    				<?= $this->render('_form', [ 'model' => $model, ]) ?>
+				    <?= $this->render('_form', [ 'model' => $model, 'categories' => $categories, 'productCategory' => $productCategory, 'uploadModel' => $uploadModel, ]) ?>
 				</div>
       		</div> <!-- end: div x-panel -->
 		</div>
 	</div>
 </div>
+
+
 
