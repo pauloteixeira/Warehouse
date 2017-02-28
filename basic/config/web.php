@@ -52,6 +52,10 @@ $config = [
                 '/category/delete/<id:\d+>' => 'category/delete',
                 '/category/delete-ajax/<id:\d+>' => 'category/delete-ajax',
                 '/category/save/<id:\d+>' => 'category/save',
+                '/product/<id:\d+>' => 'product/view',
+                '/product/update/<id:\d+>' => 'product/update',
+                '/product/save/<id:\d+>' => 'product/save',
+                '/product/delete-ajax/<id:\d+>' => 'product/delete-ajax',
             ],
         ],
         'StringUtils' => [

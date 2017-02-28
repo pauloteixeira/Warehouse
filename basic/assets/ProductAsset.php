@@ -13,7 +13,7 @@ use yii\web\AssetBundle;
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @since 2.0
  */
-class CategoryAsset extends AssetBundle
+class ProductAsset extends AssetBundle
 {
     public $basePath = '@webroot';
     public $baseUrl = '@web';
@@ -22,7 +22,7 @@ class CategoryAsset extends AssetBundle
     ];
     public $js = [
       
-      'js/handlers/category.min.js?release=1',
+      'js/handlers/product.min.js?release=2',
     ];
     public $depends = [
         'yii\web\YiiAsset',

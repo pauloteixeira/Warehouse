@@ -20,8 +20,8 @@ use yii\widgets\Breadcrumbs;
 						
 						<?php if(Yii::$app->user->id): ?>
 							<li><a href="/category">Category</a></li>
-							<li><a href="/products">Products</a></li>
-							<li><a href="/users">Users</a></li>
+							<li><a href="/product">Products</a></li>
+							<li><a href="/user">Users</a></li>
 							<li><a href="/profile">My Profile</a></li>
 							<li><a href="/logout">Logout</a></li>
 						<?php endif; ?>

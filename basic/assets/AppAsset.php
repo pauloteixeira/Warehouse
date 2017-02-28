@@ -26,13 +26,14 @@ class AppAsset extends AssetBundle
     public $js = [
       'vendors/bootstrap/dist/js/bootstrap.min.js',
       'vendors/jquery-scrollintoview/jquery.scrollintoview.min.js',
+      'vendors/jquery-mask/jquery.mask.min.js',
       'vendors/notify/pnotify.core.js',
       'vendors/notify/pnotify.buttons.js',
       'vendors/notify/pnotify.nonblock.js',
       'vendors/select2/dist/js/select2.min.js',
       'vendors/moment/min/moment-with-locales.min.js',
       'js/app-resources.js?release=1',
-      'js/handlers/nav.min.js?release=1',
+      'js/handlers/nav.min.js?release=2',
     ];
     public $depends = [
         'yii\web\YiiAsset',

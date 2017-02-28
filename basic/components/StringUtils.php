@@ -199,4 +199,8 @@ class StringUtils extends Component
     return highlight_string(var_export($object, true));
   }
 
+  public static function generateString()
+  {
+    return Yii::$app->security->generateRandomString();
+  }
 }
