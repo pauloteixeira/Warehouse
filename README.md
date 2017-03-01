@@ -28,7 +28,7 @@ To install and running the APP is required to following the instructions bellow:
 
 Clone the repository
 ```bash
-git clone git@github.com:pauloteixeira/Warehouse.git
+git clone git@github.com:youruser/Warehouse.git
 ```
 
 Configure your database connection, in the root of the project open the file and change data using the command below
@@ -74,7 +74,7 @@ php yii migrate new
 ```
 This migration will be create all of the tables and insert a user to init of use.
 
-if is necessaire, I'm making a database dump available to alread run the application with data in the folder script in the root of the project.
+if is necessaire, I'm making a database dump available to alread run the application with data, the dump is in the script folder inside the root of the project.
 
 if you're using the dump data, the password of the admin@admin.com user is: senha123
 
